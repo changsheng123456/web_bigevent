@@ -14,6 +14,7 @@ $(function(){
 
 //获取用户基本信息
 function getUserInfo(){
+    console.log("getUserInfo()");
     $.ajax({
         method:"GET",
         url:"/my/userinfo",
@@ -27,7 +28,7 @@ function getUserInfo(){
             }
 
             renderAvatar(res.data);
-        },
+        }
         // //无论成功与否都会调用complete函数
         // complete:function(res){
         //     console.log(res);

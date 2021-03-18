@@ -13,9 +13,10 @@ $.ajaxPrefilter(function(options){
 
     //全局统一挂载complte回调函数,complete函数 是无论请求是否成功 都会执行的
     options.complete = function(res){
+        console.log("complete 函数被回调")
         console.log(res);
         //在complete函数中可以使用responseJSON属性拿到服务区响应回来的数据
-        if(res.responseJSON.status == 1){
+        if(res.responseJSON.status == 1 && res.responseJSON.message === '身份认证失败！'){
             console.log(res.responseJSON.message);
             //强制清空token
             localStorage.removeItem("token");
